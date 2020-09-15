@@ -7,47 +7,74 @@ using CodeMonkey.Utils;
 
 public class Inventory_UI : MonoBehaviour
 {
-    [SerializeField] private Transform slotOne;
+    [SerializeField] private List<Transform> slots;
     [SerializeField] private Inventory inventory;
     private void Awake()
     {
-        foreach (var slot in inventory.itemSlots)
+        foreach (Transform child in transform)
         {
-            slot.onNumChanged += Slot_onNumChanged;
+            slots.Add(child);
         }
-        slotOne.transform.Find("Image").GetComponent<Image>().sprite = inventory.itemSlots[0].blockPrefab.GetComponent<SpriteRenderer>().sprite;
-        slotOne.transform.Find("Image").GetComponent<Button_UI>().ClickFunc = () =>
+    }
+    private void Start()
+    {
+        SetupSlots();
+        
+    }
+
+    private void Slot_onNumChanged(int id)
+    {
+        for(var i = 0; i < slots.Count; i++)
         {
-            if (inventory.itemSlots[0].num > 0)
+            if(inventory.itemSlots[i].block == BlockDatabase.GetBlockName(id))
             {
-                GameObject newBlock = Instantiate(inventory.itemSlots[0].blockPrefab);
-                Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                newBlock.transform.position = mousePos;
-                inventory.UpdateSlotNum(-1, 0);
-                UpdateNumberText(slotOne);
+                slots[i].transform.Find("Number Text").GetComponent<TextMeshProUGUI>().text = inventory.itemSlots[i].num.ToString();
+                return;
             }
-        };
-        slotOne.transform.Find("Right Arrow").GetComponent<Button_UI>().ClickFunc = () =>
-        {
-            inventory.itemSlots[0].UpdateBlockUp();
-            slotOne.transform.Find("Image").GetComponent<Image>().sprite = inventory.itemSlots[0].blockPrefab.GetComponent<SpriteRenderer>().sprite;
-        };
-        slotOne.transform.Find("Left Arrow").GetComponent<Button_UI>().ClickFunc = () =>
-        {
-            inventory.itemSlots[0].UpdateBlockDown();
-            slotOne.transform.Find("Image").GetComponent<Image>().sprite = inventory.itemSlots[0].blockPrefab.GetComponent<SpriteRenderer>().sprite;
-        };
-        slotOne.transform.Find("Number Text").GetComponent<TextMeshProUGUI>().text = inventory.itemSlots[0].num.ToString();
+        }
     }
 
-    private void Slot_onNumChanged(Transform obj)
+    private void SetupSlots()
     {
-        UpdateNumberText(obj);
+        
+            for (int i = 0; i < slots.Count; i++)
+            {
+                inventory.itemSlots[i].onNumChanged += Slot_onNumChanged;
+                slots[i].transform.Find("Image").GetComponent<Image>().sprite = inventory.itemSlots[i].blockPrefab.GetComponent<SpriteRenderer>().sprite;
+                SetupButton(i);
+                slots[i].transform.Find("Number Text").GetComponent<TextMeshProUGUI>().text = inventory.itemSlots[i].num.ToString();
+            }
+            
     }
-
-    private void UpdateNumberText(Transform slot)
+    
+    private void SetupButton(int index)
     {
-        slot.transform.Find("Number Text").GetComponent<TextMeshProUGUI>().text = inventory.itemSlots[0].num.ToString();
+        slots[index].transform.Find("Image").GetComponent<Button_UI>().ClickFunc = () =>
+        {
+            if (inventory.itemSlots[index].num > 0)
+            {
+            
+            GameObject newBlock = Instantiate(inventory.itemSlots[index].blockPrefab);
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            newBlock.transform.position = mousePos;
+            inventory.UpdateSlotNum(-1, index);
+            slots[index].transform.Find("Number Text").GetComponent<TextMeshProUGUI>().text = inventory.itemSlots[index].num.ToString();
+            
+            }
+
+        };
+
+        slots[index].transform.Find("Right Arrow").GetComponent<Button_UI>().ClickFunc = () =>
+        {
+            inventory.itemSlots[index].UpdateBlockUp();
+            slots[index].transform.Find("Image").GetComponent<Image>().sprite = inventory.itemSlots[index].blockPrefab.GetComponent<SpriteRenderer>().sprite;
+        };
+
+        slots[index].transform.Find("Left Arrow").GetComponent<Button_UI>().ClickFunc = () =>
+        {
+            inventory.itemSlots[index].UpdateBlockDown();
+            slots[index].transform.Find("Image").GetComponent<Image>().sprite = inventory.itemSlots[index].blockPrefab.GetComponent<SpriteRenderer>().sprite;
+        };
     }
     
 }

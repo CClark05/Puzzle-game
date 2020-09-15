@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Barrier
   - Spawn
+  - Inventory
+  - Portal(Cyan)
+  - Portal(Red)
   layers:
   - Default
   - TransparentFX

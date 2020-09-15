@@ -8,13 +8,21 @@ public class Inventory : MonoBehaviour
     public List<ItemSlot> itemSlots;
     private void Awake()
     {
-        InventoryBlock.onTileDiscarded += InventoryBlock_onTileDiscarded;
+        DragDrop.onTileDiscarded += DragDrop_onTileDiscarded;
     }
 
-    private void InventoryBlock_onTileDiscarded(int index)
+    private void DragDrop_onTileDiscarded(int id)
     {
-        itemSlots[index].UpdateNum(1);
+        for(var i = 0; i<itemSlots.Count; i++)
+        {
+            if (itemSlots[i].block == BlockDatabase.GetBlockName(id))
+            {
+                itemSlots[i].UpdateNum(1);
+                return;
+            }
+        }
     }
+
     public void UpdateSlotNum(int amount, int index)
     {
         if(index < itemSlots.Count)
@@ -28,12 +36,11 @@ public class ItemSlot
 {
     public Blocks block;
     public int num;
-    public Transform slotTransform;
     public bool hasOrienations;
     public List<GameObject> blockPrefabs;
     public GameObject blockPrefab;
     private int prefabIndex = 0;
-    public event Action<Transform> onNumChanged;
+    public event Action<int> onNumChanged;
     public void UpdateBlockUp()
     {
        
@@ -64,6 +71,6 @@ public class ItemSlot
     public void UpdateNum(int amount)
     {
         num += amount;
-        onNumChanged?.Invoke(slotTransform);
+        onNumChanged?.Invoke(BlockDatabase.GetBlockID(block));
     }
 }

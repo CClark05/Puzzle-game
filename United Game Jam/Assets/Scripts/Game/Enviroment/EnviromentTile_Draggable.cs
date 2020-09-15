@@ -5,7 +5,7 @@ using System;
 
 public class EnviromentTile_Draggable : EnviromentTile
 {
-    public DragDrop dragDrop;
+    [HideInInspector] public DragDrop dragDrop;
 
     new public void Awake()
     {

@@ -8,6 +8,7 @@ public enum Blocks
     Movement,
     Flag,
     Spawn,
+    Teleport,
 }
 
 public static class BlockDatabase
@@ -26,6 +27,8 @@ public static class BlockDatabase
                 return 4;
             case Blocks.Spawn:
                 return 5;
+            case Blocks.Teleport:
+                return 6;
             default:
                 return 99; //Invalid block
         }
@@ -46,6 +49,8 @@ public static class BlockDatabase
                 return Blocks.Barrier;
             case 5:
                 return Blocks.Spawn;
+            case 6:
+                return Blocks.Teleport;
         }
     }
 }

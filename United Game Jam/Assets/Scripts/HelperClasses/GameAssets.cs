@@ -12,4 +12,5 @@ public class GameAssets : MonoBehaviour
     }
     public TMP_FontAsset robotoThin;
     public GameObject tileGrid;
+    public Inventory inventory;
 }

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -6685514884987736742}
   - component: {fileID: 4671002084864144321}
   - component: {fileID: 1194182269041527317}
-  - component: {fileID: -5807487182740464944}
   m_Layer: 0
   m_Name: MovementBlock(Left)
   m_TagString: Untagged
@@ -141,16 +140,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beingDragged: 0
---- !u!114 &-5807487182740464944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4671002084864144326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c2a970a4d14e24ba4fabadb7ac3c27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryIndex: 0

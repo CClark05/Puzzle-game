@@ -9,7 +9,6 @@ public class LevelLoader : MonoBehaviour
     private void Awake()
     {
         i = this;
-        LoadScene(2);
     }
     
     public void LoadScene(int buildIndex)

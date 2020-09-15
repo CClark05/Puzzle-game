@@ -11,7 +11,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private Vector2 currentPos;
     private Vector2 previousTile;
     private bool placed = false;
-    public event Action onTileDiscarded;
+    public static event Action<int> onTileDiscarded;
+    public event Action onTilePlaced;
     public void Awake()
     {
         beingDragged = true;
@@ -76,6 +77,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
                     beingDragged = false;
                     GetComponent<EnviromentTile>().UpdateTile();
                     previousTile = transform.position;
+                    onTilePlaced?.Invoke();
                     placed = true;
                 }
             }
@@ -98,7 +100,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
         if(!placed)
         {
-            onTileDiscarded?.Invoke();
+            onTileDiscarded?.Invoke(GetComponent<EnviromentTile>().id);
             Destroy(gameObject);
         }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnviromentTile : MonoBehaviour
 {
     public int id;
-    public Transform playerTransform;
+    [HideInInspector] public Transform playerTransform;
 
     public void Awake()
     {
