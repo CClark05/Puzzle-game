@@ -117,6 +117,6 @@ public class PlayerMovement : MonoBehaviour, IMovement
         transform.position = spawnPosition;
         GameManager.i.simulationRun = false;
         direction = originalDirection;
-       
+        GameManager.i.RestartSimulation();
     }
 }

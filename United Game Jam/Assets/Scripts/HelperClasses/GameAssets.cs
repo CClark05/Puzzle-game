@@ -12,5 +12,7 @@ public class GameAssets : MonoBehaviour
     }
     public TMP_FontAsset robotoThin;
     public GameObject tileGrid;
-    public Inventory inventory;
+    public GameObject arrows;
+    public Sprite[] movementBlocks;
+    public Sprite[] portalBlocks;
 }

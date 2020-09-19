@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 7915440932627180368}
   - component: {fileID: 7915440932627180369}
   - component: {fileID: 7915440932627180370}
+  - component: {fileID: 5571509674841621930}
   - component: {fileID: 7915440932627180374}
   - component: {fileID: 7915440932627180371}
+  - component: {fileID: 7176457742985001996}
   m_Layer: 0
   m_Name: Portal Tile - Cyan
   m_TagString: Portal(Cyan)
@@ -28,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7915440932627180375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -1, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,6 +112,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5571509674841621930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7915440932627180375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4771330f098d1db4898ad07204154d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerMouseRightDragOnEnter: 0
+  hoverBehaviourType: 1
+  hoverBehaviour_Color_Enter: {r: 1, g: 1, b: 1, a: 0.6}
+  hoverBehaviour_Color_Exit: {r: 1, g: 1, b: 1, a: 1}
+  hoverBehaviour_Image: {fileID: 7915440932627180369}
+  hoverBehaviour_Sprite_Exit: {fileID: 0}
+  hoverBehaviour_Sprite_Enter: {fileID: 0}
+  hoverBehaviour_Move: 0
+  hoverBehaviour_Move_Amount: {x: 0, y: 0}
+  triggerMouseOutFuncOnClick: 0
+  clickThroughUI: 1
 --- !u!114 &7915440932627180374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +152,8 @@ MonoBehaviour:
   dragDrop: {fileID: 0}
   connectingPortal: {fileID: 0}
   color: 1
+  countDown: 0
+  connected: 0
 --- !u!114 &7915440932627180371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,3 +167,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beingDragged: 0
+--- !u!114 &7176457742985001996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7915440932627180375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62dcc43e5dc517c4f81d214a857f3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newArrows: {fileID: 0}

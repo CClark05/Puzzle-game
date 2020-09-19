@@ -13,6 +13,12 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private bool placed = false;
     public static event Action<int> onTileDiscarded;
     public event Action onTilePlaced;
+    public static event Action onTilePlaced_Static;
+    public static event Action onTileDiscarded_Static;
+    public event Action onBeingDragged;
+    public event Action onDoneDragged;
+    public event Action onScrollUp;
+    public event Action onScrollDown;
     public void Awake()
     {
         beingDragged = true;
@@ -29,6 +35,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         beingDragged = true;
         GameAssets.i.tileGrid.GetComponent<TileGrid>().gridSystem.SetValue(previousTile, 1);
+        onBeingDragged?.Invoke();
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -37,6 +44,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         GameAssets.i.tileGrid.GetComponent<TileGrid>().gridSystem.GetValue(currentPos, out value);
         if (beingDragged && value == 1){
             beingDragged = false;
+            onDoneDragged?.Invoke();
             GetComponent<EnviromentTile>().UpdateTile();
             previousTile = transform.position;
         }
@@ -50,20 +58,32 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void Update()
     {
         
+
         currentPos = transform.position;
         if (beingDragged && !GameManager.i.simulationRun)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            float mouseScroll = Input.GetAxis("Mouse ScrollWheel");
+            if (Input.GetKeyDown(KeyCode.Escape) && !placed)
             {
                 DiscardBlock();
             }
-            GameAssets.i.tileGrid.GetComponent<TileGrid>().gridSystem.SetValue(previousTile, 1);
+
+            if(mouseScroll > 0) //Forward
+            {
+                onScrollUp?.Invoke();
+            }
+            if(mouseScroll < 0) //Backwards
+            {
+                onScrollDown?.Invoke();
+            }
+
             int value;
             GameAssets.i.tileGrid.GetComponent<TileGrid>().gridSystem.GetValue(currentPos, out value);
             if (value == 1) sr.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0.5f);
             else
             {
                 sr.color = new Color(1, 0, 0, 0.5f);
+                
             }
 
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -75,34 +95,33 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
                 if (value == 1)
                 {
                     beingDragged = false;
+                    onDoneDragged?.Invoke();
                     GetComponent<EnviromentTile>().UpdateTile();
                     previousTile = transform.position;
                     onTilePlaced?.Invoke();
+                    onTilePlaced_Static?.Invoke();
                     placed = true;
+                }
+                else
+                {
+                    sr.color = originalColor;
                 }
             }
         }
-        else
-        {
-            sr.color = originalColor;
-        }
+        
     }
     public void DiscardBlock ()
     {
-       // if (placed)
-      //  {
-            
-            //transform.position = previousTile;
-           // beingDragged = false;
-           // return;
-       // }
 
+        onTileDiscarded?.Invoke(GetComponent<EnviromentTile>().id);
+        onTileDiscarded_Static?.Invoke();
+        onTilePlaced?.Invoke();
+        GameAssets.i.tileGrid.GetComponent<TileGrid>().gridSystem.SetValue(previousTile, 1);
+        Destroy(gameObject);
 
-        if(!placed)
-        {
-            onTileDiscarded?.Invoke(GetComponent<EnviromentTile>().id);
-            Destroy(gameObject);
-        }
+       
 
     }
+
+    
 }

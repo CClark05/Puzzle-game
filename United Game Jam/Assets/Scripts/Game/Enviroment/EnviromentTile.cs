@@ -10,7 +10,10 @@ public class EnviromentTile : MonoBehaviour
     public void Awake()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        UpdateTile();
+        if (GetComponent<DragDrop>() == null)
+        {
+            UpdateTile();
+        }
 
     }
 

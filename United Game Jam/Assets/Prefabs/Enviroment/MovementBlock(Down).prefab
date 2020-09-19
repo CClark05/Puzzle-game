@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 1273760602369415466}
   - component: {fileID: 1273760602369415477}
   - component: {fileID: 5013780252673233182}
+  - component: {fileID: 5959322699487094223}
   - component: {fileID: 1273760602369415479}
   - component: {fileID: 2607610826272327205}
+  - component: {fileID: 1855220308405624457}
   m_Layer: 0
   m_Name: MovementBlock(Down)
   m_TagString: Untagged
@@ -28,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273760602369415478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.38, y: -1.9, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -111,6 +113,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5959322699487094223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273760602369415478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4771330f098d1db4898ad07204154d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerMouseRightDragOnEnter: 0
+  hoverBehaviourType: 1
+  hoverBehaviour_Color_Enter: {r: 1, g: 1, b: 1, a: 0.6}
+  hoverBehaviour_Color_Exit: {r: 1, g: 1, b: 1, a: 1}
+  hoverBehaviour_Image: {fileID: 1273760602369415477}
+  hoverBehaviour_Sprite_Exit: {fileID: 0}
+  hoverBehaviour_Sprite_Enter: {fileID: 0}
+  hoverBehaviour_Move: 0
+  hoverBehaviour_Move_Amount: {x: 0, y: 0}
+  triggerMouseOutFuncOnClick: 0
+  clickThroughUI: 1
 --- !u!114 &1273760602369415479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,3 +165,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beingDragged: 0
+--- !u!114 &1855220308405624457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273760602369415478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62dcc43e5dc517c4f81d214a857f3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

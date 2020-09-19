@@ -44,6 +44,18 @@ public class SpawnTile : EnviromentTile
             }
             UpdateDirection();
         };
+        GameManager.onSimulationRun += () =>
+        {
+            rightArrow.gameObject.SetActive(false);
+            leftArrow.gameObject.SetActive(false);
+        };
+        GameManager.onSimulationRestarted += () =>
+        {
+            rightArrow.gameObject.SetActive(true);
+            leftArrow.gameObject.SetActive(true);
+        };
+
+
     }
     private void FindSprite()
     {
