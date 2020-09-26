@@ -186,7 +186,7 @@ RectTransform:
   m_GameObject: {fileID: 984082289026391062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 984082289217352738}
   m_RootOrder: 4
@@ -217,13 +217,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.17376316, g: 0.20178948, b: 0.213, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4346244404228752641, guid: 37727287dfb61844493bc73b101c4ae2,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: f2835914c4e810c499c731899d0cb554, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -246,8 +245,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverBehaviourType: 1
-  hoverBehaviour_Color_Enter: {r: 0.25439999, g: 0.29279998, b: 0.312, a: 1}
-  hoverBehaviour_Color_Exit: {r: 0.17254902, g: 0.2, b: 0.21176471, a: 1}
+  hoverBehaviour_Color_Enter: {r: 1, g: 1, b: 1, a: 0.6}
+  hoverBehaviour_Color_Exit: {r: 1, g: 1, b: 1, a: 1}
   hoverBehaviour_Image: {fileID: 984082289026391067}
   hoverBehaviour_Sprite_Exit: {fileID: 0}
   hoverBehaviour_Sprite_Enter: {fileID: 0}
@@ -490,7 +489,7 @@ RectTransform:
   m_GameObject: {fileID: 984082289771373862}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 984082289217352738}
   m_RootOrder: 3
@@ -521,13 +520,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.17376316, g: 0.20178948, b: 0.213, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4346244404228752641, guid: 37727287dfb61844493bc73b101c4ae2,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: f2835914c4e810c499c731899d0cb554, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -550,8 +548,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverBehaviourType: 1
-  hoverBehaviour_Color_Enter: {r: 0.25439999, g: 0.29279998, b: 0.312, a: 1}
-  hoverBehaviour_Color_Exit: {r: 0.17254902, g: 0.2, b: 0.21176471, a: 1}
+  hoverBehaviour_Color_Enter: {r: 1, g: 1, b: 1, a: 0.6}
+  hoverBehaviour_Color_Exit: {r: 1, g: 1, b: 1, a: 1}
   hoverBehaviour_Image: {fileID: 984082289771373867}
   hoverBehaviour_Sprite_Exit: {fileID: 0}
   hoverBehaviour_Sprite_Enter: {fileID: 0}

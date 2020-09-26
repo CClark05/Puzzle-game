@@ -8,7 +8,14 @@ public class GameAssets : MonoBehaviour
     public static GameAssets i;
     private void Awake()
     {
-        i = this;
+        if (i == null)
+        {
+            i = this;
+        }
+        else
+        {
+            Destroy(i.gameObject);
+        }
     }
     public TMP_FontAsset robotoThin;
     public GameObject tileGrid;

@@ -703,50 +703,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f369f63e8ae174e49806bb2afcf6d7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1053209470
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1053209472}
-  - component: {fileID: 1053209471}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1053209471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1053209470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8022e4b2260934c4281a8dbd675a341f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  simulationRun: 0
---- !u!4 &1053209472
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1053209470}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.53668, y: 40.681007, z: -884.8594}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1111659803
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,7 +834,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -705.3, y: 0.0000076294}
+  m_AnchoredPosition: {x: -705.3, y: 0}
   m_SizeDelta: {x: 144.1, y: 193.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1174783618
@@ -899,8 +855,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1958676783162264248, guid: db95a0455b5db7346ae8b9d69077f5a6,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: f2835914c4e810c499c731899d0cb554, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

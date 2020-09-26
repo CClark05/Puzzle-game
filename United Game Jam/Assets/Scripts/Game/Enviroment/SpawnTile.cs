@@ -6,13 +6,13 @@ using CodeMonkey.Utils;
 
 public class SpawnTile : EnviromentTile
 {
+
     [SerializeField] private PlayerDirections direction;
     private int directionIndex;
     [SerializeField] private Sprite[] sprites;
     private SpriteRenderer sr;
     [SerializeField] private Button_Sprite rightArrow;
     [SerializeField] private Button_Sprite leftArrow;
-
     new private void Awake()
     {
         directionIndex = (int)direction;
@@ -20,6 +20,9 @@ public class SpawnTile : EnviromentTile
         sr = GetComponent<SpriteRenderer>();
         Game_UI.onPlayButtonClicked += StartGame;
         FindSprite();
+
+        
+
         rightArrow.ClickFunc = () =>
         {
             if (directionIndex < Enum.GetValues(typeof(PlayerDirections)).Length - 1)
@@ -44,18 +47,20 @@ public class SpawnTile : EnviromentTile
             }
             UpdateDirection();
         };
-        GameManager.onSimulationRun += () =>
-        {
-            rightArrow.gameObject.SetActive(false);
-            leftArrow.gameObject.SetActive(false);
-        };
-        GameManager.onSimulationRestarted += () =>
-        {
-            rightArrow.gameObject.SetActive(true);
-            leftArrow.gameObject.SetActive(true);
-        };
+        GameManager.onSimulationRun += HideArrows;
+        GameManager.onSimulationRestarted += ShowArrows;
 
 
+    }
+    private void ShowArrows()
+    {
+        rightArrow.gameObject.SetActive(true);
+        leftArrow.gameObject.SetActive(true);
+    }
+    private void HideArrows()
+    {
+        rightArrow.gameObject.SetActive(false);
+        leftArrow.gameObject.SetActive(false);
     }
     private void FindSprite()
     {
@@ -75,6 +80,7 @@ public class SpawnTile : EnviromentTile
                 break;
         }
     }
+    
     private void StartGame()
     {
         playerTransform.GetComponent<IMovement>().SwitchDirection(direction);
@@ -85,5 +91,12 @@ public class SpawnTile : EnviromentTile
         direction = (PlayerDirections)directionIndex;
         FindSprite();
     }
+    private void OnDestroy()
+    {
+        Game_UI.onPlayButtonClicked -= StartGame;
+        GameManager.onSimulationRun -= HideArrows;
+        GameManager.onSimulationRestarted -= ShowArrows;
+    }
+
 
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6811242958957071414}
   - component: {fileID: 6260336900583209444}
   - component: {fileID: -8222779487528925785}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MovementBlock(Up)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,3 +177,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62dcc43e5dc517c4f81d214a857f3e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newArrows: {fileID: 0}

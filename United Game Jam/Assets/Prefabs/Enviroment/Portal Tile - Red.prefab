@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7473620751440212254}
   - component: {fileID: 7473620751440212251}
   - component: {fileID: -9106543692243440366}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Portal Tile - Red
   m_TagString: Portal(Red)
   m_Icon: {fileID: 0}

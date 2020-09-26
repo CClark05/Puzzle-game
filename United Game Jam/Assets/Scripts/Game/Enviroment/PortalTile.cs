@@ -159,6 +159,11 @@ public class PortalTile : EnviromentTile_Draggable
                 
         }
     }
+
+    private void OnDestroy()
+    {
+        
+    }
 }
 
 

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2482724185422719523}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arrows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,9 +42,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2482724185793703490}
   - component: {fileID: 2482724185793703489}
-  - component: {fileID: 2482724185793703495}
+  - component: {fileID: 17628940771126276}
   - component: {fileID: 2482724185793703488}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,8 +59,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2482724185793703491}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05677593, y: 0.05677593, z: 0.057054}
+  m_LocalPosition: {x: -0.113, y: 0, z: 0}
+  m_LocalScale: {x: -0.25, y: 0.25, z: 0.03976664}
   m_Children: []
   m_Father: {fileID: 2482724185422719523}
   m_RootOrder: 0
@@ -104,19 +104,18 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -4346244404228752641, guid: 37727287dfb61844493bc73b101c4ae2,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: f2835914c4e810c499c731899d0cb554, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7, y: 11}
+  m_Size: {x: 1.49, y: 2.42}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2482724185793703495
+--- !u!61 &17628940771126276
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,14 +132,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7, y: 11}
-    newSize: {x: 7, y: 11}
+    oldSize: {x: 1.46, y: 2.37}
+    newSize: {x: 1.49, y: 2.42}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7, y: 11}
+  m_Size: {x: 1.49, y: 2.42}
   m_EdgeRadius: 0
 --- !u!114 &2482724185793703488
 MonoBehaviour:
@@ -156,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerMouseRightDragOnEnter: 0
   hoverBehaviourType: 1
-  hoverBehaviour_Color_Enter: {r: 1, g: 1, b: 1, a: 0.5372549}
+  hoverBehaviour_Color_Enter: {r: 1, g: 1, b: 1, a: 0.6}
   hoverBehaviour_Color_Exit: {r: 1, g: 1, b: 1, a: 1}
   hoverBehaviour_Image: {fileID: 2482724185793703489}
   hoverBehaviour_Sprite_Exit: {fileID: 0}
@@ -175,9 +174,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2482724185848383845}
   - component: {fileID: 2482724185848383844}
-  - component: {fileID: 2482724185848383850}
+  - component: {fileID: 608437249841816439}
   - component: {fileID: 2482724185848383851}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,8 +191,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2482724185848383846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.65, y: 0, z: 0}
-  m_LocalScale: {x: -0.05677593, y: 0.05677593, z: 0.057054}
+  m_LocalPosition: {x: 1.73, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.057054}
   m_Children: []
   m_Father: {fileID: 2482724185422719523}
   m_RootOrder: 1
@@ -237,19 +236,18 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -4346244404228752641, guid: 37727287dfb61844493bc73b101c4ae2,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: f2835914c4e810c499c731899d0cb554, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7, y: 11}
+  m_Size: {x: 1.49, y: 2.42}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2482724185848383850
+--- !u!61 &608437249841816439
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -266,14 +264,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7, y: 11}
-    newSize: {x: 7, y: 11}
+    oldSize: {x: 1.46, y: 2.37}
+    newSize: {x: 1.49, y: 2.42}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7, y: 11}
+  m_Size: {x: 1.49, y: 2.42}
   m_EdgeRadius: 0
 --- !u!114 &2482724185848383851
 MonoBehaviour:

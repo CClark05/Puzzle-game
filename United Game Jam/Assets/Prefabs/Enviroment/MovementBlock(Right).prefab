@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2022615512394980695}
   - component: {fileID: 1273565659288797730}
   - component: {fileID: 1524749704}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MovementBlock(Right)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

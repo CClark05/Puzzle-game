@@ -4,7 +4,7 @@ using UnityEngine;
 using CodeMonkey.Utils;
 using System;
 
-public class Tile_UI : MonoBehaviour
+public class Tile_UI : TileDetection
 {
     private Button_Sprite spriteButton;
     private bool arrowsShown;
@@ -62,74 +62,75 @@ public class Tile_UI : MonoBehaviour
     {
         GetComponent<BoxCollider2D>().enabled = true;
     }
-    Ray ray;
-    RaycastHit2D hit;
-    string raycastHit;
-    private void Update()
+    new private void Update()
     {
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        raycastHit = RaycastCheck(ray, hit);
+        base.Update();
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (selectedTile != null && !selectedTile.GetComponent<DragDrop>().beingDragged &&  selected && raycastHit != "Left Arrow" && raycastHit != "Right Arrow")
+            if (selectedTile != null && !selectedTile.GetComponent<DragDrop>().beingDragged && selected)
             {
-                newArrows.SetActive(false);
-                arrowsShown = false;
-                selected = false;
-                FunctionTimer.Create(() =>
+                if (GetRaycastName() == null)
                 {
-                   Game_UI.i.HideButton("Discard Button");
-                }, 0.1f);
-                
+                    newArrows.SetActive(false);
+                    arrowsShown = false;
+                    selected = false;
+                    FunctionTimer.Create(() =>
+                    {
+                        Game_UI.i.HideButton("Discard Button");
+                    }, 0.1f);
+                }
             }
         }
-     
+
     }
+
     private void SetupButton()
     {
 
         spriteButton.ClickFunc = () =>
         {
-            
-            if (selectedTile != null && selectedTile != this)
+            if (!GameManager.i.simulationRun)
             {
-                
-                selectedTile.newArrows.SetActive(false);
-                selectedTile.arrowsShown = false;
-                selectedTile = this;
-                
-            }
-            else
-            {
-                selectedTile = this;
-            }
-            if (!selectedTile.GetComponent<DragDrop>().beingDragged)
-            {
-                if (!arrowsShown)
+                if (selectedTile != null && selectedTile != this)
                 {
-                    Game_UI.i.ShowButton("Discard Button");
-                    newArrows.SetActive(true);
-                    arrowsShown = true;
-                    FunctionTimer.Create(() =>
-                    {
-                       selected = true;
-                    }, 0.1f);
-                    
+
+                    selectedTile.newArrows.SetActive(false);
+                    selectedTile.arrowsShown = false;
+                    selectedTile = this;
+
                 }
-                selectedTile.GetComponent<DragDrop>().onBeingDragged += Tile_UI_onBeingDragged;
-                selectedTile.GetComponent<DragDrop>().onDoneDragged += Tile_UI_onDoneDragged;
-            }
-        };
+                else
+                {
+                    selectedTile = this;
+                }
+                if (!selectedTile.GetComponent<DragDrop>().beingDragged)
+                {
+                    if (!arrowsShown)
+                    {
+                        Game_UI.i.ShowButton("Discard Button");
+                        newArrows.SetActive(true);
+                        arrowsShown = true;
+                        FunctionTimer.Create(() =>
+                        {
+                            selected = true;
+                        }, 0.1f);
 
-        newArrows.transform.Find("Left Arrow").GetComponent<Button_Sprite>().ClickFunc = () =>
-        {
-            SpriteChangedLeft();
-        };
+                    }
+                    selectedTile.GetComponent<DragDrop>().onBeingDragged += Tile_UI_onBeingDragged;
+                    selectedTile.GetComponent<DragDrop>().onDoneDragged += Tile_UI_onDoneDragged;
+                }
+            };
 
-        newArrows.transform.Find("Right Arrow").GetComponent<Button_Sprite>().ClickFunc = () =>
-        {
-            SpriteChangedRight();
+            newArrows.transform.Find("Left Arrow").GetComponent<Button_Sprite>().ClickFunc = () =>
+            {
+                SpriteChangedLeft();
+            };
+
+            newArrows.transform.Find("Right Arrow").GetComponent<Button_Sprite>().ClickFunc = () =>
+            {
+                SpriteChangedRight();
+            };
         };
     }
 
@@ -154,17 +155,7 @@ public class Tile_UI : MonoBehaviour
         if (!GameManager.i.simulationRun)
             onSpriteChangedRight?.Invoke();
     }
-    public string RaycastCheck(Ray ray, RaycastHit2D hit)
-    {
-        hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
 
-        if (Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity))
-        {
-            return hit.collider.name;
-        }
-        else
-        {
-            return null;
-        }
-    }
+
+    
 }

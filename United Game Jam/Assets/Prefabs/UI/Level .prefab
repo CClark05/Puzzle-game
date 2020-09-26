@@ -267,3 +267,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
+  altSprite: {fileID: -3454606007271700828, guid: 8e8b19eb8bc6ca94085771b15d8ded4f,
+    type: 3}

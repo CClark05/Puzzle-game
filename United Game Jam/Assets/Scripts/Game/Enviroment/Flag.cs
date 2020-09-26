@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Flag : EnviromentTile
 {
@@ -11,6 +12,7 @@ public class Flag : EnviromentTile
     {
         base.Awake();
         touchedFlag = false;
+        
     }
 
     private void Update()

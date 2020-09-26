@@ -119,4 +119,11 @@ public class PlayerMovement : MonoBehaviour, IMovement
         direction = originalDirection;
         GameManager.i.RestartSimulation();
     }
+
+    void OnDestroy()
+    {
+        Game_UI.onPlayButtonClicked -= Game_UI_onPlayButtonClicked;
+        Game_UI.onRestartButtonClicked -= Respawn;
+        Flag.onFlagEntered -= Flag_onFlagEntered;
+    }
 }

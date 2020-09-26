@@ -95,5 +95,16 @@ public class Inventory_UI : MonoBehaviour
             
         };
     }
-    
+    private void OnDestroy()
+    {
+        DragDrop.onTilePlaced_Static -= DragDrop_onTilePlaced_Static;
+        DragDrop.onTileDiscarded_Static -= DragDrop_onTilePlaced_Static;
+        for (int i = 0; i < slots.Count; i++)
+        {
+            inventory.itemSlots[i].onNumChanged -= Slot_onNumChanged;
+            
+        }
+    }
+
+
 }
